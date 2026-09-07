@@ -1,113 +1,151 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en-GB">
 <head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>karissabob - My Portfolio</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet" type="text/css">
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">	
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-	<link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
-	<script src="js/script.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karissa | Fire safety &amp; practical software</title>
+<meta name="description" content="I'm Karissa, a UK fire safety consultant building practical software. Explore selected projects in evacuation modelling, document organisation and fire risk assessment.">
+<meta name="theme-color" content="#101918">
+<link rel="canonical" href="https://karissabob.github.io/">
+<style>
+:root{color-scheme:dark;--bg:#101918;--surface:#192523;--text:#f1f5ee;--muted:#b8c7bf;--line:#374741;--accent:#d3f76b;--ink:#172119}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:2rem}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;font-size:1rem;line-height:1.65}
+a{color:inherit;text-underline-offset:.3em}
+a:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:6px}
+a:hover{color:var(--accent)}
+.wrap{width:min(1200px,calc(100% - 6rem));margin:auto}
+.skip{position:absolute;left:1rem;top:-6rem;padding:.7rem 1rem;background:var(--accent);color:var(--ink);z-index:5}
+.skip:focus{top:1rem}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:2rem;padding:1.7rem 0;border-bottom:1px solid var(--line)}
+.brand{font-weight:700;font-size:1.2rem;letter-spacing:-.04em;text-decoration:none}
+.brand span{color:var(--accent)}
+.nav-links{display:flex;gap:2rem;flex-wrap:wrap;font-size:.9rem}
+.nav-links a{text-decoration:none}
+.eyebrow{font-family:Consolas,'Courier New',monospace;font-size:.875rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.hero{padding:5.5rem 0 4rem}
+.hero .eyebrow{display:flex;align-items:center;gap:.7rem}
+.dot{width:.5rem;height:.5rem;background:var(--accent);border-radius:50%;display:inline-block}
+.hero h1{font-size:clamp(3.2rem,7.5vw,6.8rem);line-height:1.03;letter-spacing:-.065em;font-weight:600;max-width:1000px;margin:1.8rem 0 2rem}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero-bottom{display:grid;grid-template-columns:1.2fr 1fr;align-items:end;gap:4rem}
+.intro{font-size:1.2rem;line-height:1.6;max-width:560px;color:var(--muted);margin:0}
+.intro strong{color:var(--text);font-weight:400}
+.jump{justify-self:end;display:inline-flex;align-items:center;gap:3rem;padding:1rem 1.3rem;border:1px solid var(--accent);text-decoration:none;color:var(--accent);font-weight:600}
+.jump:hover{background:var(--accent);color:var(--ink)}
+.section-head{border-top:1px solid var(--line);padding:2rem 0;display:flex;align-items:baseline;justify-content:space-between;gap:1rem}
+.section-head h2{font-size:1rem;font-weight:400;margin:0;letter-spacing:.09em;text-transform:uppercase}
+.section-head span{font-family:Consolas,'Courier New',monospace;color:var(--muted);font-size:.875rem}
+.projects{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;padding-bottom:4rem}
+.project{border:1px solid var(--line);background:var(--surface);padding:2.4rem;min-width:0;position:relative}
+.project.featured{grid-column:1/-1;background:var(--accent);color:var(--ink);display:grid;grid-template-columns:1.3fr 1fr;column-gap:5rem;border-color:var(--accent)}
+.project-top{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:2.5rem}
+.project-top .eyebrow{color:inherit}
+.number{font-family:Consolas,'Courier New',monospace;font-size:1rem;opacity:.8}
+.project h3{font-size:clamp(2rem,4vw,3rem);line-height:1.1;letter-spacing:-.05em;margin:0 0 1.2rem;font-weight:500}
+.project p{color:var(--muted);max-width:570px;margin:0 0 1.5rem}
+.project.featured p{color:#304128}
+.featured .project-top{grid-column:1/-1}
+.project .statement{font-size:1.3rem;line-height:1.5;color:var(--text);margin-bottom:1rem}
+.featured .statement{color:var(--ink)}
+.tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.7rem}
+.tags span{border:1px solid var(--line);border-radius:2rem;padding:.3rem .8rem;font-size:.875rem;color:var(--muted)}
+.featured .tags span{border-color:#708944;color:var(--ink)}
+.feature-list{align-self:center;border-top:1px solid #8da652}
+.feature-list div{display:flex;gap:1rem;border-bottom:1px solid #8da652;padding:1rem 0}
+.feature-list span{font-family:Consolas,'Courier New',monospace;font-size:.875rem;padding-top:.1rem;min-width:1.5rem}
+.feature-list p{margin:0;color:var(--ink)}
+details{margin-top:2rem;border-top:1px solid var(--line);padding-top:1rem}
+summary{cursor:pointer;font-weight:600;min-height:2rem}
+details p{margin-top:1rem!important;font-size:1rem}
+.note{font-size:.875rem!important;margin-top:1.5rem!important;margin-bottom:0!important}
+.about{display:grid;grid-template-columns:1fr 1.6fr;gap:5rem;border-top:1px solid var(--line);padding:3rem 0 4rem}
+.about h2{font-size:2.4rem;font-weight:500;letter-spacing:-.04em;line-height:1.15;margin:.7rem 0}
+.about-copy{font-size:1.15rem;color:var(--muted)}
+.about-copy p{margin:0 0 1.3rem}
+.contact{border-top:1px solid var(--line);padding:3rem 0}
+.contact-top{display:flex;justify-content:space-between;align-items:center;gap:2rem}
+.contact h2{font-size:clamp(2rem,4vw,3.5rem);line-height:1.2;letter-spacing:-.05em;font-weight:500;margin:0}
+.contact p{color:var(--muted)}
+.socials{display:flex;gap:1.5rem;flex-wrap:wrap}
+.socials a{padding:.4rem 0}
+.elsewhere{margin-top:2rem;font-size:.875rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:1rem}
+.footer{display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--line);padding:1.5rem 0 2rem;color:var(--muted);font-size:.875rem}
+.footer a{text-decoration:none}
+@media(min-width:1500px){.hero{padding-top:7rem}
+}
+@media(max-width:760px){.wrap{width:calc(100% - 2.5rem)}
+.nav{gap:1rem;align-items:flex-start}
+.nav-links{gap:.8rem;font-size:.875rem}
+.hero{padding:3.5rem 0 3rem}
+.hero h1{font-size:clamp(3rem,11vw,5rem)}
+.hero-bottom{grid-template-columns:1fr;gap:1.8rem}
+.jump{justify-self:start}
+.projects{grid-template-columns:1fr}
+.project,.project.featured{padding:1.5rem;display:block}
+.project-top{margin-bottom:2rem}
+.feature-list{margin-top:2rem}
+.about{grid-template-columns:1fr;gap:1rem;padding:2rem 0}
+.contact-top{align-items:flex-start;flex-direction:column}
+.section-head{align-items:flex-start}
+.footer{flex-wrap:wrap}
+.intro{font-size:1.1rem}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}
+}
+@media print{body{background:white;color:black}
+.wrap{width:100%}
+.nav,.jump,.elsewhere{display:none}
+.hero{padding:1rem 0}
+.hero h1{font-size:3rem}
+.project,.project.featured{background:white;color:black;border-color:#999;break-inside:avoid}
+.project p,.intro,.about-copy,.project .statement,.hero h1 em{color:black}
+.projects{display:block}
+.project{margin-bottom:1rem}
+.tags span,.eyebrow,.footer{color:#333}
+details p{display:block}
+}
+
+</style>
 </head>
-<body id="home" data-spy="scroll" data-target=".navbar" data-offset="60">
-	<!-- Nav bar -->
-	<nav class="navbar navbar-default navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav navbar-right">
-					<li>
-						<a href="#home">HOME</a>
-					</li>
-					<li>
-						<a href="#portfolio">PORTFOLIO</a>
-					</li>
-					<li>
-						<a href="#contact">CONTACT</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-
-	<!-- Title Header section -->
-	<div class="container-fluid bg-1 text-center">
-		<h1 class="margin">karissabob</h1>
-		<h3>FreeCodeCamp student learning to code</h3>
-	</div>
-
-	<!-- Portfolio section -->
-	<div class="container-fluid bg-2 text-center" id="portfolio">
-		<div class="row">
-			<div class="col-sm-4">
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse pharetra, odio quis aliquet condimentum, urna dui
-					sollicitudin erat, nec vulputate arcu ante et urna. Integer sit amet risus lacinia, tempus leo quis, ornare eros. Nulla
-					laoreet dignissim mi, at commodo nisl auctor lobortis. Aenean consectetur mauris sed leo porttitor laoreet. Pellentesque
-					imperdiet imperdiet pharetra. Nam sed blandit nisl. Cras tempor velit sit amet eros eleifend aliquam. Nulla elementum,
-					erat at ultricies maximus, felis magna volutpat dui, non tristique metus felis non lacus. Sed maximus tristique tellus
-					ac suscipit. Phasellus pulvinar eget nunc pretium convallis. Ut aliquet ac urna sed faucibus.</p>
-				<a href="https://placeholder.com">
-					<img src="http://via.placeholder.com/350x150" class="img-responsive img-thumbnail">
-				</a>
-			</div>
-			<div class="col-sm-4">
-				<a href="https://placeholder.com">
-					<img src="http://via.placeholder.com/800x500" class="img-responsive img-thumbnail">
-				</a>
-				<p>Integer pharetra nisi vehicula egestas bibendum. Sed elementum, nunc luctus lobortis tincidunt, metus dolor consequat
-					metus, faucibus sodales dui eros id est. Nullam lacus nulla, cursus id ipsum quis, porta porttitor nulla. Nulla tristique
-					ipsum a risus posuere, id facilisis lacus aliquet. Etiam et sodales velit, sed ullamcorper dolor. Suspendisse volutpat
-					arcu nunc, eget laoreet est condimentum vel. Aliquam suscipit mauris diam. </p>
-			</div>
-			<div class="col-sm-4">
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse pharetra, odio quis aliquet condimentum, urna dui
-					sollicitudin erat, nec vulputate arcu ante et urna. Integer sit amet risus lacinia, tempus leo quis, ornare eros. Nulla
-					laoreet dignissim mi, at commodo nisl auctor lobortis. Aenean consectetur mauris sed leo porttitor laoreet. Pellentesque
-					imperdiet imperdiet pharetra. Nam sed blandit nisl. Cras tempor velit sit amet eros eleifend aliquam. Nulla elementum,
-					erat at ultricies maximus, felis magna volutpat dui, non tristique metus felis non lacus. Sed maximus tristique tellus
-					ac suscipit. Phasellus pulvinar eget nunc pretium convallis. Ut aliquet ac urna sed faucibus.</p>
-				<a href="https://placeholder.com">
-					<img src="http://via.placeholder.com/650x400" class="img-responsive img-thumbnail">
-				</a>
-			</div>
-		</div>
-	</div>
-
-	<!-- Footer -->
-	<footer class="container-fluid bg-3 text-center text-muted" id="contact">
-		<h1>Get in contact:</h1>
-		<a href="https://www.facebook.com/karissabob" target="_blank">
-			<i class="fa fa-facebook"></i>
-		</a>
-		<a href="https://twitter.com/karissabob" target="_blank">
-			<i class="fa fa-twitter"></i>
-		</a>
-		<a href="https://www.linkedin.com/in/karissabob/" target="_blank">
-			<i class="fa fa-linkedin"></i>
-		</a>
-		<a href="https://github.com/karissabob" target="_blank">
-			<i class="fa fa-github"></i>
-		</a>
-		<a href="https://www.freecodecamp.com/karissabob" target="_blank">
-			<i class="fa fa-free-code-camp"></i>
-		</a>
-		<a href="https://codepen.io/karissabob/#" title="Facebook" alt="Link to Facebook" target="_blank">
-			<i class="fa fa-codepen"></i>
-		</a>
-		</br>
-		<a href="#home" title="To Top" alt="Go back to the top of the page">
-			<i class="fa fa-arrow-up" aria-hidden="true"></i>
-	</footer>
+<body id="home">
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header class="nav">
+<a class="brand" href="#home" aria-label="Karissabob home">karissabob<span>.</span></a>
+<nav class="nav-links" aria-label="Main navigation"><a href="#portfolio">Projects</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+</header>
+<main id="main">
+<section class="hero" aria-labelledby="intro-title">
+<div class="eyebrow"><span class="dot" aria-hidden="true"></span> Fire safety consultant · UK</div>
+<h1 id="intro-title">Real-world problems.<br><em>Tools I build to<br>work through them.</em></h1>
+<div class="hero-bottom"><p class="intro"><strong>I'm Karissa.</strong> I work in fire safety and build software around the practical challenges I encounter: understanding evacuation, organising documents, and bringing assessment work together.</p><a class="jump" href="#portfolio">Explore my projects <span aria-hidden="true">↘</span></a></div>
+</section>
+<section id="portfolio" aria-labelledby="projects-title">
+<div class="section-head"><h2 id="projects-title">Selected projects</h2><span>01 — 03 / Personal tools</span></div>
+<div class="projects">
+<article class="project featured">
+<div class="project-top"><span class="eyebrow">Evacuation · Exploration</span><span class="number" aria-hidden="true">01</span></div>
+<div><h3>Evacuation modeller</h3><p class="statement">Explore how people move through a space.</p><p>A browser-based tool for drawing layouts and playing back pedestrian evacuation scenarios. A way to explore how the arrangement of a space can influence movement and congestion.</p><div class="tags"><span>Spatial thinking</span><span>Simulation</span><span>Visual playback</span></div></div>
+<div><div class="feature-list"><div><span>01</span><p>Sketch a layout and its exits</p></div><div><span>02</span><p>Explore a movement scenario</p></div><div><span>03</span><p>Watch the flow and spot congestion</p></div></div><p class="note">An exploratory project, not a validated tool for making fire safety decisions.</p></div>
+</article>
+<article class="project">
+<div class="project-top"><span class="eyebrow">Documents · Desktop</span><span class="number" aria-hidden="true">02</span></div>
+<h3>BinderBox</h3><p class="statement">Bring order to the paperwork.</p><p>A Windows document workspace for assembling PDFs, photos and other files into useful packs. Pages sit in visible rows, making it easier to organise a bundle without juggling separate files.</p><div class="tags"><span>PDF organisation</span><span>Page editing</span><span>Document packs</span></div>
+<details><summary>A closer look</summary><p>Reorder and rotate pages, bring photos together, and export organised PDF documents. Built around practical jobs such as preparing survey packs, with original files kept intact.</p></details>
+</article>
+<article class="project">
+<div class="project-top"><span class="eyebrow">Fire safety · Web app</span><span class="number" aria-hidden="true">03</span></div>
+<h3>Fire risk assessment portal</h3><p class="statement">A clearer home for assessment work.</p><p>A web application bringing fire risk assessment and reporting tasks into one place. Built around the day-to-day work of a fire safety consultant.</p><div class="tags"><span>Assessment workflow</span><span>Reporting</span><span>Organisation</span></div>
+<details><summary>A closer look</summary><p>A project focused on organising assessment information and preparing reports through a more connected workflow. The showcase describes the purpose of the tool; working records and internal processes remain private.</p></details>
+</article>
+</div>
+</section>
+<section class="about" id="about" aria-labelledby="about-title"><div><div class="eyebrow">Behind the projects</div><h2 id="about-title">Built from<br>everyday practice.</h2></div><div class="about-copy"><p>My starting point is the work itself. These projects connect my experience in fire safety with an interest in making useful software, from visual exploration to the less glamorous business of getting documents in order.</p><p>This is a selection of personal projects, shared at a high level. Source code, client information and working data are kept private.</p></div></section>
+<section class="contact" id="contact" aria-labelledby="contact-title"><div class="contact-top"><div><h2 id="contact-title">Let's connect.</h2><p>Find me on LinkedIn or follow along on GitHub.</p></div><div class="socials"><a href="https://www.linkedin.com/in/karissabob/">LinkedIn <span aria-hidden="true">↗</span></a><a href="https://github.com/karissabob">GitHub <span aria-hidden="true">↗</span></a></div></div><div class="elsewhere"><span>Elsewhere:</span><a href="https://codepen.io/karissabob/">CodePen</a><a href="https://www.freecodecamp.com/karissabob">freeCodeCamp</a><a href="https://twitter.com/karissabob">X / Twitter</a><a href="https://www.facebook.com/karissabob">Facebook</a></div></section>
+</main>
+<footer class="footer"><span>Karissa / karissabob</span><span>Fire safety. Practical software. Ongoing curiosity.</span><a href="#home">Back to top ↑</a></footer>
+</div>
+</body>
 </html>
